@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ATHEN — Skandinaviskt Mode &amp; Klädförsäljning</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{obsidian:'#0E0D0C',alabaster:'#F9F8F5',champagne:'#C8B28E','champagne-dark':'#9B845E',stonecard:'#F0EEE9'},fontFamily:{serif:['"Cormorant Garamond"','Georgia','serif'],sans:['"Plus Jakarta Sans"','system-ui','sans-serif']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:#F9F8F5;color:#0E0D0C;font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+h1,h2,h3,h4,.font-serif{font-family:'Cormorant Garamond',Georgia,serif}
+.card{transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.card:hover{transform:translateY(-6px)}
+.ph{background:linear-gradient(135deg,#F0EEE9,#E2D3B8);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:#9B845E;font-weight:600}
+.card{animation:up .6s both}@keyframes up{from{opacity:0;transform:translateY(14px)}}.sk{background:linear-gradient(90deg,#F0EEE9,#E6E1D6,#F0EEE9);background-size:200% 100%;animation:sh 1.2s infinite}@keyframes sh{to{background-position:-200% 0}}html{scroll-behavior:smooth}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #C8B28E;outline-offset:2px}.cats{scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[70] bg-obsidian text-alabaster border border-champagne/40 px-5 py-3 rounded-full shadow-2xl text-xs tracking-wider uppercase font-medium opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<div class="bg-obsidian text-alabaster text-[10px] sm:text-[11px] tracking-[0.2em] uppercase py-2.5 px-4 text-center font-medium">
+  100% oanvända fabriksnyheter · Beställ via DM på Instagram, Snapchat eller TikTok
+</div>
+
+<header class="sticky top-0 z-40 bg-alabaster/95 backdrop-blur-xl border-b border-obsidian/10" style="padding-top:env(safe-area-inset-top,0px)">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
+    <input id="q" oninput="onSearch()" type="search" placeholder="Sök märke eller plagg…" class="w-28 sm:w-64 bg-white rounded-full px-4 py-2.5 border border-obsidian/10 text-xs focus:outline-none focus:border-champagne">
+    <a href="#" onclick="resetAll();return false" class="font-serif text-3xl sm:text-5xl font-semibold tracking-[0.25em] uppercase text-center leading-none">ATHEN<span class="block text-[8px] tracking-[0.35em] text-champagne-dark font-bold mt-1 font-sans">Maison &amp; Luxury Archive</span></a>
+    <div class="flex items-center gap-1.5"><button onclick="showFavs()" class="bg-white border border-obsidian/15 rounded-full px-3.5 py-2.5 flex items-center gap-2 text-xs font-bold" aria-label="Sparade">
+      <span id="heartTop"></span><span id="favCount">0</span>
+    </button>
+    <button onclick="openCart()" class="bg-obsidian text-alabaster rounded-full px-3.5 py-2.5 flex items-center gap-2 text-xs font-bold" aria-label="Kundvagn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8B28E" stroke-width="2"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span id="cartCount">0</span></button></div>
+  </div>
+  <div class="border-t border-obsidian/5 bg-white/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div id="depts" class="flex gap-2 text-xs uppercase tracking-widest font-bold"></div>
+      <div id="cats" class="cats flex gap-5 overflow-x-auto text-[11px] uppercase tracking-[0.18em] font-medium whitespace-nowrap py-1"></div>
+    </div>
+  </div>
+</header>
+
+<section class="bg-obsidian text-alabaster"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-24 text-center"><p class="text-champagne text-[11px] tracking-[0.35em] uppercase font-bold">Nya i lager</p><h1 class="font-serif text-5xl sm:text-7xl mt-4 leading-[1.05]">Märkeskläder – <em class="text-champagne">helt oanvända</em></h1><p class="mt-5 text-sm text-alabaster/65 max-w-xl mx-auto leading-relaxed">Utvalda fabriksnyheter från kända märken. Hitta ditt plagg och skriv privat till oss så ordnar vi resten.</p><a href="#grid" class="inline-block mt-8 bg-champagne text-obsidian px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-alabaster transition-all">Se kollektionen</a></div><div class="border-t border-alabaster/10"><div class="max-w-7xl mx-auto px-4 py-4 grid grid-cols-3 gap-2 text-center text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-alabaster/60 font-semibold"><span>100% oanvänt</span><span>Snabb kontakt via DM</span><span>Säker betalning</span></div></div></section>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex-grow w-full">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 pb-5 border-b border-obsidian/10 gap-2">
+    <div>
+      <span id="sub" class="text-champagne-dark text-[11px] uppercase tracking-[0.28em] font-bold">Kollektion</span>
+      <h2 id="title" class="font-serif text-4xl sm:text-5xl mt-1">Alla plagg</h2>
+    </div>
+    <span id="count" class="text-xs text-obsidian/55"></span>
+  </div>
+  <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-12"></div>
+  <div id="empty" class="hidden text-center py-24">
+    <h3 class="font-serif text-3xl">Inga plagg hittades</h3>
+    <button onclick="resetAll()" class="mt-5 bg-obsidian text-alabaster px-7 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em]">Visa alla plagg</button>
+  </div>
+</main>
+
+<footer class="bg-obsidian text-alabaster py-14 px-4 sm:px-6 border-t border-champagne/20" style="padding-bottom:calc(3.5rem + env(safe-area-inset-bottom,0px))">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+    <div class="space-y-3">
+      <h3 class="font-serif text-3xl tracking-[0.25em] font-semibold">ATHEN</h3>
+      <p class="text-xs text-alabaster/65 leading-relaxed">Skandinavisk destination för exklusiva märkeskläder, klockor och accessoarer. 100% oanvända fabriksnyheter.</p>
+    </div>
+    <div class="space-y-3">
+      <h4 class="text-[11px] font-bold uppercase tracking-[0.24em] text-champagne">Beställ</h4>
+      <p class="text-xs text-alabaster/70 leading-relaxed">Hittat något du gillar? Skriv privat till oss så ordnar vi resten.</p>
+      <div id="footLinks" class="flex flex-wrap gap-2"></div>
+      <a href="mailto:markesklader.top1@gmail.com" class="block text-xs text-champagne underline pt-1">markesklader.top1@gmail.com</a>
+    </div>
+  </div>
+  <p class="max-w-7xl mx-auto pt-8 mt-10 border-t border-alabaster/10 text-[11px] text-alabaster/45 tracking-wider">&copy; 2026 ATHEN Maison</p>
+</footer>
+
+<div id="modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+  <div class="fixed inset-0 bg-obsidian/75 backdrop-blur-md" onclick="closeModal()"></div>
+  <div class="min-h-screen px-4 flex items-center justify-center">
+    <div class="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl my-8 border border-champagne/30">
+      <button onclick="closeModal()" class="absolute top-4 right-4 z-10 bg-white/90 w-10 h-10 rounded-full shadow-md text-xl leading-none" aria-label="Stäng">&times;</button>
+      <div class="grid md:grid-cols-2">
+        <div class="bg-stonecard">
+          <div id="mImgBox" class="ph relative h-80 sm:h-96 md:h-[480px] overflow-hidden text-xl"><span id="mFallback"></span><img id="mImg" alt="" class="absolute inset-0 w-full h-full object-cover"></div>
+          <div id="mThumbs" class="flex gap-2.5 p-3 bg-white border-t border-obsidian/5 overflow-x-auto"></div>
+        </div>
+        <div class="p-7 sm:p-10 space-y-4">
+          <div class="flex items-center justify-between">
+            <span id="mBrand" class="text-xs uppercase tracking-[0.28em] text-champagne-dark font-bold"></span>
+            <button id="mFav" onclick="toggleFav(modalId)" class="flex items-center gap-1.5 text-xs font-semibold bg-stonecard px-3.5 py-1.5 rounded-full"></button>
+          </div>
+          <h3 id="mTitle" class="font-serif text-3xl"></h3>
+          <p id="mPrice" class="text-xl font-bold"></p>
+          <p id="mDesc" class="text-xs text-obsidian/70 leading-relaxed"></p>
+          <div>
+            <p id="mDept" class="text-[11px] uppercase tracking-wider font-bold text-champagne-dark mb-2"></p>
+            <div id="mSizes" class="flex flex-wrap gap-2"></div>
+          </div>
+          <div class="pt-5 border-t border-obsidian/10 space-y-3">
+            <p class="text-[11px] uppercase tracking-wider font-bold">Vill du köpa? Skriv privat till oss</p>
+            <div id="mLinks" class="grid grid-cols-3 gap-2"></div>
+            <button onclick="addToCart()" class="w-full bg-champagne text-obsidian py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-obsidian hover:text-alabaster transition-all">Lägg i kundvagn</button>
+            <button onclick="copyMsg()" class="w-full bg-obsidian text-alabaster py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-champagne hover:text-obsidian transition-all">Kopiera färdigt meddelande</button>
+            <p class="text-[10px] text-obsidian/50 leading-relaxed">Kopiera meddelandet, öppna Instagram, Snapchat eller TikTok och skicka det i ett privat meddelande.</p>
+            <div id="mPay" class="pt-3 space-y-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="cartModal" class="fixed inset-0 z-[55] overflow-y-auto hidden">
+  <div class="fixed inset-0 bg-obsidian/75 backdrop-blur-md" onclick="closeCart()"></div>
+  <div class="min-h-screen px-4 flex items-center justify-center">
+    <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl my-8 border border-champagne/30 p-6 sm:p-8 space-y-4">
+      <button onclick="closeCart()" class="absolute top-4 right-4 bg-stonecard w-10 h-10 rounded-full text-xl leading-none" aria-label="Stäng">&times;</button>
+      <div><span class="text-[11px] uppercase tracking-[0.26em] text-champagne-dark font-bold">Din kundvagn</span><h3 class="font-serif text-3xl">Dina plagg</h3></div>
+      <div id="cartList" class="space-y-3"></div>
+      <div class="flex items-center justify-between border-t border-obsidian/10 pt-4"><span class="text-xs uppercase tracking-wider font-bold">Totalt</span><span id="cartTotal" class="text-lg font-bold"></span></div>
+      <div class="space-y-2">
+        <p class="text-[11px] uppercase tracking-wider font-bold">Beställ: skriv privat till oss</p>
+        <div id="cartLinks" class="grid grid-cols-3 gap-2"></div>
+        <button onclick="copyCart()" class="w-full bg-obsidian text-alabaster py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] hover:bg-champagne hover:text-obsidian transition-all">Kopiera hela beställningen</button>
+        <p class="text-[10px] text-obsidian/50 leading-relaxed">Kundvagnen sparas i den här webbläsaren på den här enheten. Vi bekräftar lager och frakt i DM innan du betalar med Revolut.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ÄNDRA HÄR: dina användarnamn (utan @)
+const HANDLES={instagram:'markesklader.top1',snapchat:'markesklade1',tiktok:'.athen1'};
+const LINKS=[
+  {n:'Instagram',u:()=>'https://ig.me/m/'+HANDLES.instagram},
+  {n:'Snapchat',u:()=>'https://www.snapchat.com/add/'+HANDLES.snapchat},
+  {n:'TikTok',u:()=>'https://www.tiktok.com/@'+HANDLES.tiktok}
+];
+const U=(id)=>'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w=900&q=85';
+let PRODUCTS=[];
+const CATS=[['Alla','Alla'],['Tröjor','Tröjor'],['Byxor','Byxor'],['Jackor/Väst','Jackor/Väst'],['Skor','Skor'],['Väskor','Väskor'],['Klockor','Klockor'],['Bälten','Bälten'],['Accessoarer','Accessoarer'],['Plånbok','Plånbok']];
+const HEART=(f)=>`<svg width="16" height="16" viewBox="0 0 24 24" fill="${f?'#dc2626':'none'}" stroke="#dc2626" stroke-width="2"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg>`;
+let dept='Alla',cat='Alla',query='',favMode=false,modalId=null,size='';
+let favs=[];try{favs=JSON.parse(localStorage.getItem('athen_fav_v4'))||[]}catch(e){}
+const $=id=>document.getElementById(id);
+// ÄNDRA HÄR: betalning. Revolut: användarnamn från revolut.me/DITTNAMN.
+const PAY={revolut:'7labi06'};
+function final(p){return Math.round(p.price*(1-(p.discount||0)/100))}
+function fmt(n){return Number(n).toLocaleString('sv-SE')}
+function priceHtml(p){return p.discount>0?`<span class="text-red-700">${fmt(final(p))} kr</span> <span class="line-through font-normal text-obsidian/40 text-xs">${fmt(p.price)} kr</span> <span class="bg-red-700 text-white text-[10px] px-2 py-0.5 rounded-full">-${p.discount}%</span>`:fmt(p.price)+' kr'}
+function renderPay(p){const f=final(p),b=[];
+ if(PAY.revolut)b.push(['Revolut','https://revolut.me/'+PAY.revolut]);
+ $('mPay').innerHTML='<p class="text-[11px] uppercase tracking-wider font-bold">Betalning: Revolut</p><p class="text-[10px] text-obsidian/50 leading-relaxed">Vi bekräftar lager och frakt i DM innan du betalar.</p>'+(b.length?`<div class="grid grid-cols-${b.length} gap-2">`+b.map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener" class="text-center border border-obsidian/20 hover:border-champagne rounded-full py-2.5 text-[11px] font-bold uppercase tracking-wider">${x[0]}</a>`).join('')+'</div>':'')}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function saveFavs(){try{localStorage.setItem('athen_fav_v4',JSON.stringify(favs))}catch(e){}}
+function toast(m){const t=$('toast');t.textContent=m;t.style.opacity=1;clearTimeout(t._h);t._h=setTimeout(()=>t.style.opacity=0,2500)}
+
+function renderNav(){
+  $('depts').innerHTML=['Alla','Dam','Herr'].map(d=>`<button onclick="setDept('${d}')" class="px-4 py-2 rounded-full ${d===dept?'bg-obsidian text-alabaster':'bg-stonecard hover:bg-obsidian/10'}">${d}</button>`).join('');
+  $('cats').innerHTML=CATS.map(([v,l])=>`<button onclick="setCat('${v}')" class="pb-0.5 ${v===cat&&!favMode?'font-bold border-b-2 border-champagne':'text-obsidian/55'}">${l}</button>`).join('');
+  $('heartTop').innerHTML=HEART(favs.length>0);$('favCount').textContent=favs.length;
+}
+function matchCat(p){
+  if(cat==='Alla')return true;
+  if(cat==='Accessoarer')return p.category==='Mössor/Halsduk/Vantar/Kepsar'||p.category==='Accessoarer';
+  return p.category===cat;
+}
+function card(p){
+  const fav=favs.includes(p.id),a=p.images[0],b=p.images[1]||a;
+  return `<div class="card group cursor-pointer bg-white rounded-3xl p-4 border border-obsidian/10 shadow-sm hover:shadow-xl" onclick="openModal('${p.id}')">
+   <div class="ph relative rounded-2xl overflow-hidden aspect-[3/4] mb-4 text-lg">${esc(p.brand)}
+    ${a?`<img src="${esc(a)}" alt="${esc(p.title)}" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover group-hover:opacity-0 transition-opacity duration-500">`:''}
+    ${b?`<img src="${esc(b)}" alt="" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500">`:''}
+    <button onclick="event.stopPropagation();toggleFav('${p.id}')" aria-label="Spara" class="absolute top-3 right-3 w-10 h-10 bg-white/95 rounded-full flex items-center justify-center shadow-md">${HEART(fav)}</button>
+   </div>
+   <div class="px-1 space-y-1"><span class="text-[10px] uppercase tracking-widest text-champagne-dark font-bold">${esc(p.brand)}</span>
+   <h4 class="font-serif text-lg font-medium leading-snug">${esc(p.title)}</h4>
+   <p class="text-sm font-bold">${priceHtml(p)}${soldHtml(p)}</p></div></div>`;
+}
+function render(){
+  renderNav();
+  let list=PRODUCTS.filter(p=>{
+    if(favMode)return favs.includes(p.id);
+    const d=dept==='Alla'||p.department===dept||p.department==='Unisex';
+    const s=!query||(p.title+p.brand+p.category).toLowerCase().includes(query);
+    return d&&s&&matchCat(p);
+  });
+  $('sub').textContent=favMode?'Dina favoriter':(dept==='Alla'?'Kollektion':dept+'-avdelning');
+  $('title').textContent=favMode?'Sparade plagg':(query?'Sökresultat':(cat==='Alla'?'Alla plagg':cat));
+  $('count').textContent=`Visar ${list.length} plagg`;
+  $('grid').innerHTML=list.map(card).join('');
+  $('empty').classList.toggle('hidden',list.length>0);
+}
+function setDept(d){dept=d;favMode=false;render()}
+function setCat(c){cat=c;favMode=false;render()}
+function onSearch(){query=$('q').value.trim().toLowerCase();favMode=false;render()}
+function showFavs(){favMode=true;render()}
+function resetAll(){dept='Alla';cat='Alla';query='';favMode=false;$('q').value='';render()}
+function toggleFav(id){
+  if(favs.includes(id)){favs=favs.filter(x=>x!==id);toast('Borttagen från favoriter')}
+  else{favs.push(id);toast('Sparad i favoriter')}
+  saveFavs();render();if(modalId===id)fillFav();
+}
+function fillFav(){$('mFav').innerHTML=HEART(favs.includes(modalId))+' '+(favs.includes(modalId)?'Sparad':'Spara')}
+function openModal(id){
+  const p=PRODUCTS.find(x=>x.id===id);if(!p)return;
+  modalId=id;size=p.sizes[0];
+  $('mFallback').textContent=p.brand;
+  setImg(p.images[0]);
+  $('mBrand').textContent=p.brand;$('mTitle').textContent=p.title;
+  $('mPrice').innerHTML=priceHtml(p)+soldHtml(p);
+  $('mDesc').textContent=p.description;$('mDept').textContent='Avdelning: '+p.department+' · Storlek';
+  $('mThumbs').classList.toggle('hidden',p.images.length<2);
+  $('mThumbs').innerHTML=p.images.map(u=>`<button onclick="setImg('${esc(u)}')" class="w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent hover:border-champagne flex-shrink-0"><img src="${esc(u)}" alt="" onerror="this.remove()" class="w-full h-full object-cover"></button>`).join('');
+  renderSizes(p);fillFav();renderPay(p);
+  $('mLinks').innerHTML=LINKS.map(l=>`<a href="${l.u()}" target="_blank" rel="noopener" class="text-center bg-stonecard hover:bg-champagne rounded-full py-3 text-[11px] font-bold uppercase tracking-wider transition-all">${l.n}</a>`).join('');
+  $('modal').classList.remove('hidden');
+}
+function setImg(u){const i=$('mImg');if(!u){i.style.display='none';return}i.style.display='';i.onerror=()=>i.style.display='none';i.src=u}
+function renderSizes(p){$('mSizes').innerHTML=p.sizes.map(s=>`<button onclick="pickSize('${s}')" class="px-4 py-2 rounded-full text-xs font-semibold border ${s===size?'bg-obsidian text-alabaster border-obsidian':'border-obsidian/20'}">${s}</button>`).join('')}
+function pickSize(s){size=s;renderSizes(PRODUCTS.find(x=>x.id===modalId))}
+function closeModal(){$('modal').classList.add('hidden');modalId=null}
+function soldHtml(p){return p.sold>0?`<span class="block text-[11px] font-normal text-obsidian/55 mt-0.5">${fmt(p.sold)} sålda</span>`:''}
+let cart=[];try{cart=JSON.parse(localStorage.getItem('athen_cart_v4'))||[]}catch(e){}
+function cartRows(){return cart.map((c,i)=>({c,i,p:PRODUCTS.find(x=>x.id===c.pid)})).filter(r=>r.p)}
+function updCart(){const n=$('cartCount');if(n)n.textContent=cartRows().length}
+function saveCart(){try{localStorage.setItem('athen_cart_v4',JSON.stringify(cart))}catch(e){toast('Kunde inte spara kundvagnen')}updCart()}
+function addToCart(){const p=PRODUCTS.find(x=>x.id===modalId);if(!p)return;cart.push({pid:p.id,size:size});saveCart();toast('Lagd i kundvagnen')}
+function rmCart(i){cart.splice(i,1);saveCart();drawCart()}
+function openCart(){drawCart();$('cartModal').classList.remove('hidden')}
+function closeCart(){$('cartModal').classList.add('hidden')}
+function drawCart(){const r=cartRows(),tot=r.reduce((s,x)=>s+final(x.p),0);
+ $('cartList').innerHTML=r.length?r.map(x=>`<div class="flex gap-3 items-center"><div class="ph relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 text-[8px]">${esc(x.p.brand)}${x.p.images[0]?`<img src="${esc(x.p.images[0])}" alt="" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover">`:''}</div><div class="flex-1 min-w-0"><p class="text-xs font-bold truncate">${esc(x.p.title)}</p><p class="text-[11px] text-obsidian/60">Storlek ${esc(x.c.size)}</p><p class="text-xs font-bold">${fmt(final(x.p))} kr</p></div><button onclick="rmCart(${x.i})" class="text-red-600 text-[11px] font-bold underline">Ta bort</button></div>`).join(''):'<p class="text-xs text-obsidian/50 py-6 text-center">Kundvagnen är tom.</p>';
+ $('cartTotal').textContent=fmt(tot)+' kr';
+ $('cartLinks').innerHTML=LINKS.map(l=>`<a href="${l.u()}" target="_blank" rel="noopener" class="text-center bg-stonecard hover:bg-champagne rounded-full py-3 text-[11px] font-bold uppercase tracking-wider transition-all">${l.n}</a>`).join('')}
+function copyCart(){const r=cartRows();if(!r.length){toast('Kundvagnen är tom');return}
+ const msg='Hej! Jag vill beställa:\n'+r.map(x=>`- ${x.p.title} (${x.p.brand}), storlek ${x.c.size}, ${fmt(final(x.p))} kr`).join('\n')+`\nTotalt: ${fmt(r.reduce((s,x)=>s+final(x.p),0))} kr`;
+ const done=()=>toast('Beställningen är kopierad');
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).then(done,()=>prompt('Kopiera:',msg))}else prompt('Kopiera:',msg)}
+function copyMsg(){
+  const p=PRODUCTS.find(x=>x.id===modalId);if(!p)return;
+  const msg=`Hej! Jag är intresserad av ${p.title} (${p.brand}), storlek ${size}, ${fmt(final(p))} kr. Är den kvar?`;
+  const done=()=>toast('Meddelandet är kopierat');
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).then(done,()=>prompt('Kopiera meddelandet:',msg))}
+  else prompt('Kopiera meddelandet:',msg);
+}
+$('footLinks').innerHTML=LINKS.map(l=>`<a href="${l.u()}" target="_blank" rel="noopener" class="bg-champagne text-obsidian px-5 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-wider">${l.n}</a>`).join('');
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCart()}});
+
+
+// ADMIN: öppna sidan med #admin i slutet av adressen
+let API='/api/data',PW=sessionStorage.getItem('athen_pw')||'',hasApi=false,saveT;
+async function loadProducts(){
+ try{const r=await fetch(API,{cache:'no-store'});if(r.ok){hasApi=true;const d=await r.json();if(Array.isArray(d)&&d.length){PRODUCTS=d;return}}}catch(e){}
+ try{PRODUCTS=await(await fetch('products.json',{cache:'no-store'})).json()}catch(e){toast('Kunde inte ladda produkterna')}}
+async function saveAll(){
+ if(!hasApi){setStat('Servern är inte uppsatt – sparas inte för andra');return}
+ try{const r=await fetch(API,{method:'PUT',headers:{'x-admin':PW},body:JSON.stringify(PRODUCTS)});
+  if(r.status===401){PW=prompt('Fel eller saknat lösenord. Skriv admin-lösenordet:')||'';sessionStorage.setItem('athen_pw',PW);return PW?saveAll():setStat('Inte sparat')}
+  if(!r.ok)throw 0;setStat('✓ Sparat – syns nu för alla besökare')}catch(e){setStat('Kunde inte spara, försök igen')}}
+function setStat(t){const s=$('stat');if(s)s.textContent=t}
+const ACATS=['Tröjor','Jackor/Väst','Byxor','Skor','Väskor','Klockor','Bälten','Accessoarer','Plånbok'];
+function persist(){render();clearTimeout(saveT);setStat('Sparar…');saveT=setTimeout(saveAll,600)}
+function adminInit(){if(location.hash!=='#admin')return;
+ const b=document.createElement('button');b.textContent='ADMIN';b.className='fixed bottom-5 left-4 z-[60] bg-champagne text-obsidian px-5 py-3 rounded-full text-xs font-bold shadow-lg';
+ b.onclick=()=>{if(hasApi&&!PW){PW=prompt('Admin-lösenord:')||'';sessionStorage.setItem('athen_pw',PW)}openAdmin()};document.body.appendChild(b)}
+
+
+function openAdmin(){let o=$('adminPanel');if(!o){o=document.createElement('div');o.id='adminPanel';o.className='fixed inset-0 z-[80] bg-alabaster overflow-y-auto';document.body.appendChild(o)}o.style.display='block';drawAdmin()}
+function drawAdmin(){const bt='px-4 py-2 rounded-full text-xs font-bold ';
+ $('adminPanel').innerHTML=`<div class="sticky top-0 z-10 bg-alabaster/95 backdrop-blur border-b border-obsidian/10"><div class="max-w-3xl mx-auto p-4 flex flex-wrap gap-2 items-center"><h2 class="font-serif text-3xl mr-auto">Admin <span class="text-sm font-sans text-obsidian/50">${PRODUCTS.length} produkter</span></h2><button class="${bt}bg-obsidian text-alabaster" onclick="addProd()">+ Ny produkt</button><button class="${bt}bg-stonecard" onclick="dl()">Backup</button><button class="${bt}bg-stonecard" onclick="$('adminPanel').style.display='none'">Stäng</button></div><p id="stat" class="max-w-3xl mx-auto px-4 pb-3 text-[11px] font-bold text-champagne-dark">${hasApi?'Ändringar sparas automatiskt för alla besökare.':'Servern är inte uppsatt än – se instruktionerna.'}</p></div><div class="max-w-3xl mx-auto p-4 space-y-4">${PRODUCTS.map(rowHtml).join('')}</div>`}
+
+function rowHtml(p,i){const n='w-full bg-stonecard border border-obsidian/10 rounded-xl px-3 py-2 text-xs',L='text-[10px] font-bold uppercase';
+ return `<div class="bg-white rounded-2xl p-4 border border-obsidian/10 space-y-2">
+<div class="grid grid-cols-2 gap-2"><input class="${n}" value="${esc(p.brand)}" placeholder="Märke" onchange="upd(${i},'brand',this.value)"><input class="${n}" value="${esc(p.title)}" placeholder="Namn" onchange="upd(${i},'title',this.value)"></div>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-2"><label class="${L}">Pris kr<input type="number" class="${n}" value="${p.price}" onchange="upd(${i},'price',this.value)"></label><label class="${L}">Rabatt %<input type="number" class="${n}" value="${p.discount||0}" onchange="upd(${i},'discount',this.value)"></label><label class="${L}">Sålda st<input type="number" class="${n}" value="${p.sold||0}" onchange="upd(${i},'sold',this.value)"></label><label class="${L}">Avdelning<select class="${n}" onchange="upd(${i},'department',this.value)">${['Herr','Dam','Unisex'].map(d=>`<option ${d===p.department?'selected':''}>${d}</option>`).join('')}</select></label><label class="${L}">Kategori<select class="${n}" onchange="upd(${i},'category',this.value)">${ACATS.map(c=>`<option ${c===p.category?'selected':''}>${c}</option>`).join('')}</select></label></div>
+<input class="${n}" value="${esc(p.sizes.join(', '))}" placeholder="Storlekar, kommaseparerat" onchange="upd(${i},'sizes',this.value)">
+<textarea rows="2" class="${n}" placeholder="Beskrivning" onchange="upd(${i},'description',this.value)">${esc(p.description)}</textarea>
+<div class="flex flex-wrap gap-2 items-center">${p.images.map((u,j)=>`<span class="relative"><img src="${esc(u)}" alt="" class="w-14 h-14 object-cover rounded-lg bg-stonecard"><button onclick="rmImg(${i},${j})" class="absolute -top-1 -right-1 bg-red-600 text-white w-5 h-5 rounded-full text-xs leading-none">&times;</button></span>`).join('')}<label class="text-[11px] font-bold underline cursor-pointer">+ Bild<input type="file" accept="image/*" multiple class="hidden" onchange="addFiles(${i},this)"></label><button class="text-[11px] font-bold underline" onclick="addUrl(${i})">+ Bild-URL</button><button class="text-[11px] font-bold text-red-700 underline ml-auto" onclick="delProd(${i})">Ta bort produkt</button></div></div>`}
+function upd(i,f,v){const p=PRODUCTS[i];
+ if(f==='price')p.price=Math.max(0,Number(v)||0);
+ else if(f==='discount')p.discount=Math.min(90,Math.max(0,Number(v)||0));
+ else if(f==='sizes')p.sizes=v.split(',').map(s=>s.trim()).filter(Boolean);
+ else if(f==='sold')p.sold=Math.max(0,Math.floor(Number(v))||0);
+ else if(f==='brand')p.brand=v.trim().toUpperCase();
+ else p[f]=v;
+ persist()}
+function addProd(){PRODUCTS.unshift({id:'n'+Date.now(),brand:'MÄRKE',title:'Nytt plagg',price:1000,discount:0,department:'Herr',category:'Tröjor',sizes:['S','M','L'],images:[],description:''});persist();drawAdmin()}
+function delProd(i){if(confirm('Ta bort produkten?')){PRODUCTS.splice(i,1);persist();drawAdmin()}}
+function rmImg(i,j){PRODUCTS[i].images.splice(j,1);persist();drawAdmin()}
+function addUrl(i){const u=prompt('Bildlänk (https://…)');if(u){PRODUCTS[i].images.push(u.trim());persist();drawAdmin()}}
+function addFiles(i,inp){if(!hasApi){toast('Bilduppladdning kräver servern – använd + Bild-URL');return}
+ [...inp.files].forEach(f=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=async()=>{const s=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+  try{setStat('Laddar upp bild…');const x=await fetch(API,{method:'POST',headers:{'x-admin':PW},body:c.toDataURL('image/jpeg',.85)});if(!x.ok)throw 0;PRODUCTS[i].images.push((await x.json()).url);persist();drawAdmin()}catch(e){toast('Uppladdning misslyckades – kolla lösenordet')}};im.src=r.result};r.readAsDataURL(f)})}
+function dl(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(PRODUCTS,null,1)],{type:'application/json'}));a.download='products-backup.json';a.click()}
+
+
+
+
+async function boot(){$('grid').innerHTML=Array(8).fill('<div class="sk aspect-[3/4] rounded-3xl"></div>').join('');await loadProducts();render();adminInit();updCart()}boot();
+</script>
+</body>
+</html>

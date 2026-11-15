@@ -1,0 +1,922 @@
+[
+ {
+  "id": "n1794707389270",
+  "brand": "CANADA GOOS",
+  "title": "Goose Jacket Langford Black Parka",
+  "price": 2896,
+  "discount": 18,
+  "department": "Dam",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "XXXL"
+  ],
+  "images": [
+   "n1794707389270-1.jpg",
+   "n1794707389270-2.jpg",
+   "n1794707389270-3.jpg",
+   "n1794707389270-4.jpg",
+   "n1794707389270-5.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794707196327",
+  "brand": "POLO",
+  "title": "Polo Black Shiny Jacket",
+  "price": 2418,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794707196327-1.jpg",
+   "n1794707196327-2.jpg",
+   "n1794707196327-3.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794706948374",
+  "brand": "GUCCI",
+  "title": "GG Snake Print Supreme Baseball Hat Black",
+  "price": 1000,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Accessoarer",
+  "sizes": [
+   "S",
+   "M",
+   "L"
+  ],
+  "images": [
+   "n1794706948374-1.jpg",
+   "n1794706948374-2.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794706695374",
+  "brand": "MONCLER",
+  "title": "Monclr Montbeliard Hooded Short Down Jacket",
+  "price": 2893,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794706695374-1.jpg",
+   "n1794706695374-2.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794706513955",
+  "brand": "NIKE",
+  "title": "NKE 270s Triple Black",
+  "price": 1319,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794706513955-1.jpg",
+   "n1794706513955-2.jpg",
+   "n1794706513955-3.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794706356587",
+  "brand": "NIKE",
+  "title": "NKE Vapormax FlyKnit 3.0 Triple White",
+  "price": 1518,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794706356587-1.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794706261551",
+  "brand": "MONCLER",
+  "title": "Monclr Down Jacket in Grey",
+  "price": 2570,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794706261551-1.jpg",
+   "n1794706261551-2.jpg",
+   "n1794706261551-3.jpg",
+   "n1794706261551-4.jpg",
+   "n1794706261551-5.jpg",
+   "n1794706261551-6.jpg",
+   "n1794706261551-7.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794706051710",
+  "brand": "CANADA GOOS",
+  "title": "Goose Chateau Parka Black Label",
+  "price": 2484,
+  "discount": 18,
+  "department": "Dam",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794706051710-1.jpg",
+   "n1794706051710-2.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794705848834",
+  "brand": "CHRISTIAN LOUBOUTIN",
+  "title": "Loubs Shoes In Black With Spikes",
+  "price": 1956,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794705848834-1.jpg",
+   "n1794705848834-2.jpg",
+   "n1794705848834-3.jpg",
+   "n1794705848834-4.jpg"
+  ],
+  "description": "",
+  "sold": 5
+ },
+ {
+  "id": "n1794705624440",
+  "brand": "BURBERRY",
+  "title": "Brbrry Slip-on Black",
+  "price": 1819,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794705624440-1.jpg",
+   "n1794705624440-2.jpg"
+  ],
+  "description": "",
+  "sold": 4
+ },
+ {
+  "id": "n1794705465493",
+  "brand": "NIKE",
+  "title": "NKE Hooded Puffer Long Coat Jacket Black",
+  "price": 1944,
+  "discount": 18,
+  "department": "Dam",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794705465493-1.jpg",
+   "n1794705465493-2.jpg",
+   "n1794705465493-3.jpg",
+   "n1794705465493-4.jpg",
+   "n1794705465493-5.jpg"
+  ],
+  "description": ""
+ },
+ {
+  "id": "n1794705381420",
+  "brand": "BURBERRY",
+  "title": "Burberry Beanie Black",
+  "price": 934,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Accessoarer",
+  "sizes": [],
+  "images": [
+   "n1794705381420-1.jpg",
+   "n1794705381420-2.jpg",
+   "n1794705381420-3.jpg"
+  ],
+  "description": "",
+  "sold": 1
+ },
+ {
+  "id": "n1794705236703",
+  "brand": "BURBERRY",
+  "title": "Burberry Beanie Beige",
+  "price": 934,
+  "discount": 17,
+  "department": "Dam",
+  "category": "Accessoarer",
+  "sizes": [],
+  "images": [
+   "n1794705236703-1.jpg",
+   "n1794705236703-2.jpg",
+   "n1794705236703-3.jpg"
+  ],
+  "description": ""
+ },
+ {
+  "id": "n1794705047111",
+  "brand": "MONCLER",
+  "title": "Monclr Navy Blue Down Jacket",
+  "price": 2767,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794705047111-1.jpg",
+   "n1794705047111-2.jpg",
+   "n1794705047111-3.jpg"
+  ],
+  "description": "Monogram Mood. The mood of the year. Feel unique with our Montbeliard Jacket.\n\nDetails: \n\nPremium cotton\nEmbroidered logo\nTop quality design\nStreetwear style\nLimited units",
+  "sold": 5
+ },
+ {
+  "id": "n1794704879766",
+  "brand": "BURBERRY",
+  "title": "Brbrry Check Stripe Zip Hoodie",
+  "price": 1608,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794704879766-1.jpg",
+   "n1794704879766-2.jpg",
+   "n1794704879766-3.jpg"
+  ],
+  "description": "",
+  "sold": 5
+ },
+ {
+  "id": "n1794704751242",
+  "brand": "MONCLER",
+  "title": "Monclr Black Beanie",
+  "price": 999,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Accessoarer",
+  "sizes": [],
+  "images": [
+   "n1794704751242-1.jpg",
+   "n1794704751242-2.jpg"
+  ],
+  "description": "",
+  "sold": 5
+ },
+ {
+  "id": "n1794704470666",
+  "brand": "BURBERRY",
+  "title": "Brbrry Hoodie in Black",
+  "price": 1543,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Tröjor",
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "XL"
+  ],
+  "images": [
+   "n1794704470666-1.jpg",
+   "n1794704470666-2.jpg",
+   "n1794704470666-3.jpg",
+   "n1794704470666-4.jpg"
+  ],
+  "description": "",
+  "sold": 5
+ },
+ {
+  "id": "n1794704293717",
+  "brand": "GUCCI",
+  "title": "GG Reversible belt with Interlocking g buckle",
+  "price": 1016,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Bälten",
+  "sizes": [
+   "80",
+   "85",
+   "90",
+   "95",
+   "100",
+   "105",
+   "110",
+   "115",
+   "120"
+  ],
+  "images": [
+   "n1794704293717-1.jpg",
+   "n1794704293717-2.jpg",
+   "n1794704293717-3.jpg"
+  ],
+  "description": "",
+  "sold": 5
+ },
+ {
+  "id": "n1794704005816",
+  "brand": "DSQUARED2",
+  "title": "DSQ2 Jeans",
+  "price": 1523,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Byxor",
+  "sizes": [
+   "28",
+   "30",
+   "32",
+   "34",
+   "36",
+   "38",
+   "40",
+   "42",
+   "44"
+  ],
+  "images": [
+   "n1794704005816-1.jpg",
+   "n1794704005816-2.jpg",
+   "n1794704005816-3.jpg"
+  ],
+  "description": "",
+  "sold": 5
+ },
+ {
+  "id": "n1794703877043",
+  "brand": "GUCCI",
+  "title": "GG Jumbo Baseball Cap Black",
+  "price": 1044,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Accessoarer",
+  "sizes": [
+   "S",
+   "M",
+   "L"
+  ],
+  "images": [
+   "n1794703877043-1.jpg"
+  ],
+  "description": "",
+  "sold": 6
+ },
+ {
+  "id": "n1794703717126",
+  "brand": "LOUIS VUITTON",
+  "title": "Louis Beanie in Black",
+  "price": 1044,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Accessoarer",
+  "sizes": [],
+  "images": [
+   "n1794703717126-1.jpg"
+  ],
+  "description": "",
+  "sold": 6
+ },
+ {
+  "id": "n1794703457890",
+  "brand": "MONCLER",
+  "title": "Monclr Vezere Zip-Up Short Down Jacket",
+  "price": 2887,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794703457890-1.jpg",
+   "n1794703457890-2.jpg",
+   "n1794703457890-3.jpg",
+   "n1794703457890-4.jpg"
+  ],
+  "description": "",
+  "sold": 6
+ },
+ {
+  "id": "n1794703247541",
+  "brand": "LOUIS VUITTON",
+  "title": "Louis Beanie Black",
+  "price": 1035,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Accessoarer",
+  "sizes": [],
+  "images": [
+   "n1794703247541-1.jpg"
+  ],
+  "description": "",
+  "sold": 9
+ },
+ {
+  "id": "n1794702918968",
+  "brand": "HERMES",
+  "title": "Herme belt buckle Reversible leather strap 38 mm",
+  "price": 1014,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Bälten",
+  "sizes": [
+   "85",
+   "90",
+   "95",
+   "100",
+   "105",
+   "110",
+   "115",
+   "120"
+  ],
+  "images": [
+   "n1794702918968-1.jpg"
+  ],
+  "description": "",
+  "sold": 8
+ },
+ {
+  "id": "n1794702397237",
+  "brand": "NIKE",
+  "title": "NKE TN Sneakers Red Black",
+  "price": 1615,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794702397237-1.jpg",
+   "n1794702397237-2.jpg",
+   "n1794702397237-3.jpg",
+   "n1794702397237-4.jpg"
+  ],
+  "description": ""
+ },
+ {
+  "id": "n1794699405154",
+  "brand": "JORDAN",
+  "title": "NKE J4 Retro Black Cat",
+  "price": 1779,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45"
+  ],
+  "images": [
+   "n1794699405154-1.jpg",
+   "n1794699405154-2.jpg",
+   "n1794699405154-3.jpg",
+   "n1794699405154-4.jpg"
+  ],
+  "description": "",
+  "sold": 8
+ },
+ {
+  "id": "n1794699213882",
+  "brand": "NIKE",
+  "title": "Vm Plus Triple Black",
+  "price": 1458,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794699213882-1.jpg",
+   "n1794699213882-2.jpg",
+   "n1794699213882-3.jpg",
+   "n1794699213882-4.jpg",
+   "n1794699213882-5.jpg"
+  ],
+  "description": "",
+  "sold": 7
+ },
+ {
+  "id": "n1794698783838",
+  "brand": "NIKE",
+  "title": "NKE TN Sneakers Red Black",
+  "price": 1415,
+  "discount": 17,
+  "department": "Herr",
+  "category": "Skor",
+  "sizes": [
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46"
+  ],
+  "images": [
+   "n1794698783838-1.jpg",
+   "n1794698783838-2.jpg",
+   "n1794698783838-3.jpg"
+  ],
+  "description": "",
+  "sold": 9
+ },
+ {
+  "id": "n1794698620298",
+  "brand": "MOOSE KNUCKLES",
+  "title": "Moose Bunny Zip-Up Gold logo Hoodie",
+  "price": 2339,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794698620298-1.jpg",
+   "n1794698620298-2.jpg",
+   "n1794698620298-3.jpg",
+   "n1794698620298-4.jpg"
+  ],
+  "description": "",
+  "sold": 10
+ },
+ {
+  "id": "n1794698407980",
+  "brand": "BURBERRY",
+  "title": "Brbrry Zip Black Hoodie",
+  "price": 1890,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794698407980-1.jpg",
+   "n1794698407980-2.jpg"
+  ],
+  "description": "",
+  "sold": 12
+ },
+ {
+  "id": "n1794698231775",
+  "brand": "DIOR",
+  "title": "C.D Navy Blue Zip Up Hoodie",
+  "price": 2018,
+  "discount": 18,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "n1794698231775-1.jpg",
+   "n1794698231775-2.jpg",
+   "n1794698231775-3.jpg"
+  ],
+  "description": "",
+  "sold": 15
+ },
+ {
+  "id": "p1",
+  "brand": "BURBERRY",
+  "title": "Brbrry BB Lockwell Puffer Black Men Jacket",
+  "price": 3047,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "XXXL"
+  ],
+  "images": [
+   "p1-1.jpg",
+   "p1-2.jpg",
+   "p1-3.jpg",
+   "p1-4.jpg",
+   "p1-5.jpg",
+   "p1-6.jpg",
+   "p1-7.jpg"
+  ],
+  "description": "Elevate your winter style with our Monogram Lockwell Jacket. Featuring a padded, quilted design with detachable sleeves and a drawstring hood, combining warmth, versatility, and refined style.\n\nDetails:\n\nTop quality design\nDown-filled, quilted construction\nDetachable sleeves, wear as a gilet\nLimited units",
+  "discount": 18,
+  "sold": 58
+ },
+ {
+  "id": "p2",
+  "brand": "CANADA GOOSE",
+  "title": "Goose Wyndham Parka Black Label Heritage",
+  "price": 3145,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "p2-1.jpg",
+   "p2-2.jpg",
+   "p2-3.jpg",
+   "p2-4.jpg"
+  ],
+  "description": "Skräddarsydda byxor från Dior i exklusivt silke/ull-mix.",
+  "discount": 18,
+  "sold": 35
+ },
+ {
+  "id": "p3",
+  "brand": "CANADA GOOSE",
+  "title": "Goose Cardigan Black with Black Label",
+  "price": 2383,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "p3-1.jpg",
+   "p3-2.jpg",
+   "p3-3.jpg"
+  ],
+  "description": "",
+  "discount": 18
+ },
+ {
+  "id": "p4",
+  "brand": "CANADA GOOSE",
+  "title": "Goose McMillan Black Parka Black Label Men",
+  "price": 3123,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL",
+   "XXXL"
+  ],
+  "images": [
+   "p4-1.jpg",
+   "p4-2.jpg",
+   "p4-3.jpg",
+   "p4-4.jpg"
+  ],
+  "description": "McMillan Jacket\n\nCanada Mood. The Mood of the Year.\nFeel unique with our Goose McMillan Parka, a statement of modern elegance that combines exclusivity, refined design, and premium comfort for those who value sophistication and style.\n\nDetails:\n\nEmbroidered logos\n\nSleek and versatile silhouette\n\nLimited units available\n\nPremium cotton with a contemporary style\n\nRemovable hood with coyote fur and adjustable wire for extra warmth and wind protection",
+  "discount": 18,
+  "sold": 32
+ },
+ {
+  "id": "p5",
+  "brand": "MONCLER",
+  "title": "Monclr Madeira Hooded Short Down Jacket",
+  "price": 3113,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "p5-1.jpg",
+   "p5-2.jpg",
+   "p5-3.jpg",
+   "p5-4.jpg"
+  ],
+  "description": "",
+  "discount": 18,
+  "sold": 28
+ },
+ {
+  "id": "p6",
+  "brand": "MOOSE KNUCKLES",
+  "title": "Moose Jacket Silver Patch White Fur",
+  "price": 3042,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "p6-1.jpg",
+   "p6-2.jpg",
+   "p6-3.jpg",
+   "p6-4.jpg"
+  ],
+  "description": "",
+  "discount": 18,
+  "sold": 20
+ },
+ {
+  "id": "p7",
+  "brand": "MOOSE KNUCKLES",
+  "title": "Moose Zip Up White Bunny Silver logo Hoodie",
+  "price": 2592,
+  "department": "Herr",
+  "category": "Jackor/Väst",
+  "sizes": [
+   "XS",
+   "S",
+   "M",
+   "L",
+   "XL",
+   "XXL"
+  ],
+  "images": [
+   "p7-1.jpg",
+   "p7-2.jpg",
+   "p7-3.jpg",
+   "p7-4.jpg",
+   "p7-5.jpg"
+  ],
+  "description": "",
+  "discount": 18,
+  "sold": 17
+ }
+]
