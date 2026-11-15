@@ -257,23 +257,10 @@ let API='/api/data',PW=sessionStorage.getItem('athen_pw')||'',hasApi=false,saveT
 async function loadProducts(){
  try{const r=await fetch(API,{cache:'no-store'});if(r.ok){hasApi=true;const d=await r.json();if(Array.isArray(d)&&d.length){PRODUCTS=d;return}}}catch(e){}
  try{PRODUCTS=await(await fetch('products.json',{cache:'no-store'})).json()}catch(e){toast('Kunde inte ladda produkterna')}}
-async function saveAll(){
- if(!hasApi){setStat('Servern är inte uppsatt – sparas inte för andra');return}
- try{const r=await fetch(API,{method:'PUT',headers:{'x-admin':PW},body:JSON.stringify(PRODUCTS)});
-  if(r.status===401){PW=prompt('Fel eller saknat lösenord. Skriv admin-lösenordet:')||'';sessionStorage.setItem('athen_pw',PW);return PW?saveAll():setStat('Inte sparat')}
-  if(!r.ok)throw 0;setStat('✓ Sparat – syns nu för alla besökare')}catch(e){setStat('Kunde inte spara, försök igen')}}
 function setStat(t){const s=$('stat');if(s)s.textContent=t}
 const ACATS=['Tröjor','Jackor/Väst','Byxor','Skor','Väskor','Klockor','Bälten','Accessoarer','Plånbok'];
 function persist(){render();clearTimeout(saveT);setStat('Sparar…');saveT=setTimeout(saveAll,600)}
-function adminInit(){if(location.hash!=='#admin')return;
- const b=document.createElement('button');b.textContent='ADMIN';b.className='fixed bottom-5 left-4 z-[60] bg-champagne text-obsidian px-5 py-3 rounded-full text-xs font-bold shadow-lg';
- b.onclick=()=>{if(hasApi&&!PW){PW=prompt('Admin-lösenord:')||'';sessionStorage.setItem('athen_pw',PW)}openAdmin()};document.body.appendChild(b)}
-
-
 function openAdmin(){let o=$('adminPanel');if(!o){o=document.createElement('div');o.id='adminPanel';o.className='fixed inset-0 z-[80] bg-alabaster overflow-y-auto';document.body.appendChild(o)}o.style.display='block';drawAdmin()}
-function drawAdmin(){const bt='px-4 py-2 rounded-full text-xs font-bold ';
- $('adminPanel').innerHTML=`<div class="sticky top-0 z-10 bg-alabaster/95 backdrop-blur border-b border-obsidian/10"><div class="max-w-3xl mx-auto p-4 flex flex-wrap gap-2 items-center"><h2 class="font-serif text-3xl mr-auto">Admin <span class="text-sm font-sans text-obsidian/50">${PRODUCTS.length} produkter</span></h2><button class="${bt}bg-obsidian text-alabaster" onclick="addProd()">+ Ny produkt</button><button class="${bt}bg-stonecard" onclick="dl()">Backup</button><button class="${bt}bg-stonecard" onclick="$('adminPanel').style.display='none'">Stäng</button></div><p id="stat" class="max-w-3xl mx-auto px-4 pb-3 text-[11px] font-bold text-champagne-dark">${hasApi?'Ändringar sparas automatiskt för alla besökare.':'Servern är inte uppsatt än – se instruktionerna.'}</p></div><div class="max-w-3xl mx-auto p-4 space-y-4">${PRODUCTS.map(rowHtml).join('')}</div>`}
-
 function rowHtml(p,i){const n='w-full bg-stonecard border border-obsidian/10 rounded-xl px-3 py-2 text-xs',L='text-[10px] font-bold uppercase';
  return `<div class="bg-white rounded-2xl p-4 border border-obsidian/10 space-y-2">
 <div class="grid grid-cols-2 gap-2"><input class="${n}" value="${esc(p.brand)}" placeholder="Märke" onchange="upd(${i},'brand',this.value)"><input class="${n}" value="${esc(p.title)}" placeholder="Namn" onchange="upd(${i},'title',this.value)"></div>
@@ -293,14 +280,31 @@ function addProd(){PRODUCTS.unshift({id:'n'+Date.now(),brand:'MÄRKE',title:'Nyt
 function delProd(i){if(confirm('Ta bort produkten?')){PRODUCTS.splice(i,1);persist();drawAdmin()}}
 function rmImg(i,j){PRODUCTS[i].images.splice(j,1);persist();drawAdmin()}
 function addUrl(i){const u=prompt('Bildlänk (https://…)');if(u){PRODUCTS[i].images.push(u.trim());persist();drawAdmin()}}
-function addFiles(i,inp){if(!hasApi){toast('Bilduppladdning kräver servern – använd + Bild-URL');return}
- [...inp.files].forEach(f=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=async()=>{const s=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
-  try{setStat('Laddar upp bild…');const x=await fetch(API,{method:'POST',headers:{'x-admin':PW},body:c.toDataURL('image/jpeg',.85)});if(!x.ok)throw 0;PRODUCTS[i].images.push((await x.json()).url);persist();drawAdmin()}catch(e){toast('Uppladdning misslyckades – kolla lösenordet')}};im.src=r.result};r.readAsDataURL(f)})}
 function dl(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(PRODUCTS,null,1)],{type:'application/json'}));a.download='products-backup.json';a.click()}
 
 
 
 
+let authed=false;
+const hdr=()=>({'x-admin':encodeURIComponent(PW)});
+async function tryLogin(){PW=($('pwIn').value||'').trim();setStat('Kontrollerar…');
+ try{const r=await fetch(API+'?check=1',{headers:hdr(),cache:'no-store'});
+  if(r.ok){authed=true;sessionStorage.setItem('athen_pw',PW);drawAdmin();return}
+  setStat(r.status===500?'Servern saknar ADMIN_PASSWORD – lägg in den hos Netlify och deploya om':'Fel lösenord – skriv det exakt som hos Netlify')}
+ catch(e){setStat('Kunde inte nå servern')}}
+async function saveAll(){
+ if(!hasApi){setStat('Servern är inte uppsatt – sparas inte för andra');return}
+ try{const r=await fetch(API,{method:'PUT',headers:hdr(),body:JSON.stringify(PRODUCTS)});
+  if(r.status===401||r.status===500){authed=false;drawAdmin();setStat('Logga in igen för att spara');return}
+  if(!r.ok)throw 0;setStat('✓ Sparat – syns nu för alla besökare')}catch(e){setStat('Kunde inte spara, försök igen')}}
+function adminInit(){if(location.hash!=='#admin')return;
+ const b=document.createElement('button');b.textContent='ADMIN';b.className='fixed bottom-5 left-4 z-[60] bg-champagne text-obsidian px-5 py-3 rounded-full text-xs font-bold shadow-lg';b.onclick=openAdmin;document.body.appendChild(b)}
+function drawAdmin(){const bt='px-4 py-2 rounded-full text-xs font-bold ';
+ if(hasApi&&!authed){$('adminPanel').innerHTML=`<div class="max-w-sm mx-auto p-6 pt-20 space-y-4"><h2 class="font-serif text-4xl">Admin</h2><input id="pwIn" type="text" autocapitalize="none" autocorrect="off" autocomplete="off" spellcheck="false" placeholder="Lösenord" class="w-full bg-stonecard border border-obsidian/10 rounded-xl px-4 py-3 text-sm"><button class="${bt}bg-obsidian text-alabaster w-full" onclick="tryLogin()">Logga in</button><button class="${bt}bg-stonecard w-full" onclick="$('adminPanel').style.display='none'">Stäng</button><p id="stat" class="text-[11px] font-bold text-champagne-dark"></p></div>`;return}
+ $('adminPanel').innerHTML=`<div class="sticky top-0 z-10 bg-alabaster/95 backdrop-blur border-b border-obsidian/10"><div class="max-w-3xl mx-auto p-4 flex flex-wrap gap-2 items-center"><h2 class="font-serif text-3xl mr-auto">Admin <span class="text-sm font-sans text-obsidian/50">${PRODUCTS.length} produkter</span></h2><button class="${bt}bg-obsidian text-alabaster" onclick="addProd()">+ Ny produkt</button><button class="${bt}bg-stonecard" onclick="dl()">Backup</button><button class="${bt}bg-stonecard" onclick="$('adminPanel').style.display='none'">Stäng</button></div><p id="stat" class="max-w-3xl mx-auto px-4 pb-3 text-[11px] font-bold text-champagne-dark">${hasApi?'Ändringar sparas automatiskt för alla besökare.':'Servern är inte uppsatt än.'}</p></div><div class="max-w-3xl mx-auto p-4 space-y-4">${PRODUCTS.map(rowHtml).join('')}</div>`}
+function addFiles(i,inp){if(!hasApi){toast('Bilduppladdning kräver servern – använd + Bild-URL');return}
+ [...inp.files].forEach(f=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=async()=>{const s=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+  try{setStat('Laddar upp bild…');const x=await fetch(API,{method:'POST',headers:hdr(),body:c.toDataURL('image/jpeg',.85)});if(!x.ok)throw 0;PRODUCTS[i].images.push((await x.json()).url);persist();drawAdmin()}catch(e){toast('Uppladdning misslyckades – logga in igen')}};im.src=r.result};r.readAsDataURL(f)})}
 async function boot(){$('grid').innerHTML=Array(8).fill('<div class="sk aspect-[3/4] rounded-3xl"></div>').join('');await loadProducts();render();adminInit();updCart()}boot();
 </script>
 </body>
